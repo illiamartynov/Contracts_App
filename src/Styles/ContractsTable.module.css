@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+  }
+  
+  .tableCell {
+    padding: 10px;
+  }
+  
+  .tableRow{
+    display: flex;
+  }
+  

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { observer } from 'mobx-react';
+import { Grid } from '@mui/material';
+import ContractsTable from './Components/ContractsTable';
+import ContractDetails from './Components/ContractDetails';
+import SearchBar from './Components/SearchBar';
+import ContractsStore from './Stores/ContractsStore';
 import './App.css';
 
-function App() {
+const App = observer(() => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container spacing={2} className="app-container">
+      <Grid item xs={12}>
+        <h1>Contract Management</h1>
+      </Grid>
+
+      <Grid item xs={12}>
+        <SearchBar store={ContractsStore} />
+      </Grid>
+
+      <Grid item xs={12}>
+        <ContractsTable store={ContractsStore} />
+      </Grid>
+
+      <ContractDetails store={ContractsStore} />
+    </Grid>
   );
-}
+});
 
 export default App;
